@@ -50,9 +50,8 @@ Desktop.ini
 .DS_Store
 
 # Files created by building the deb package
-debian/openmediavault-snapraid
+debian/openmediavault-aufs
 debian/files
 debian/*.debhelper.log
 debian/*.debhelper
 debian/*substvars
-/snapraid*/

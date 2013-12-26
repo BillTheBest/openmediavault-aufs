@@ -1,0 +1,9 @@
+Package: openmediavault-aufs
+Version: 0.5.0.39
+Architecture: all
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Installed-Size: 115
+Depends: openmediavault (>= 0.5.14), aufs-tools
+Section: net
+Priority: optional
+Description: aufs plugin for OpenMediaVault.

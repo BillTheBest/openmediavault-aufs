@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# Copyright (C) 2013 OpenMediaVault Plugin Developers
+#
+# This file is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This file is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this file. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_FSTAB_CONFIG=${OMV_FSTAB_CONFIG:-"/etc/fstab"}
+OMV_FSTAB_SECTIONNAME="omvaufs"
+
+mntent=$(
+    echo -n "\n# >>> [${OMV_FSTAB_SECTIONNAME}]\n";
+    count=$(omv_config_get_count "//services/aufs/share");
+    index=0;
+    while [ ${index} -le ${count} ]; do
+        entry=$(omv_config_get "//services/aufs/share[position()=${index}]/fstab_line")
+        if [ "${entry}" != "" ]; then
+            echo -n "${entry}\n"
+        fi
+        index=$(( ${index} + 1 ))
+    done;
+    echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
+
+# Append mount entries if not still present or replace existing entries.
+if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]\s*$" ${OMV_FSTAB_CONFIG} >/dev/null; then
+	echo -e "${mntent}" >> ${OMV_FSTAB_CONFIG}
+else
+	sed -i "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ c ${mntent}" ${OMV_FSTAB_CONFIG}
+fi
+
+#omv-mkconf samba

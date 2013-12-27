@@ -43,4 +43,6 @@ else
 	sed -i "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ c ${mntent}" ${OMV_FSTAB_CONFIG}
 fi
 
-#omv-mkconf samba
+mount -a
+
+omv-mkconf samba

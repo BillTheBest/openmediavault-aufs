@@ -60,7 +60,14 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                     ptype : "fieldinfo",
                     text  : _("A directory will be created and mounted in /media/ using Pool Name.")
                 }]
-            },{
+            }]
+        },{
+            xtype    : "fieldset",
+            title    : _("Samba Settings"),
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
                 xtype      : "textfield",
                 name       : "smbsharename",
                 fieldLabel : _("Samba Share"),
@@ -69,6 +76,32 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                     ptype : "fieldinfo",
                     text  : _("Samba share name for pool. Leave blank to disable.")
                 }]
+            },{
+                xtype      : "checkbox",
+                name       : "guestok",
+                fieldLabel : _("Public"),
+                checked    : false,
+                boxLabel   : _("If enabled then no password is required to connect to the share")
+            },{
+                xtype      : "checkbox",
+                name       : "readonly",
+                fieldLabel : _("Read only"),
+                checked    : false,
+                boxLabel   : _("Set read only"),
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("If this parameter is set, then users may not create or modify files in the share.")
+                }]
+            },{
+                xtype      : "checkbox",
+                name       : "browseable",
+                fieldLabel : _("Browseable"),
+                checked    : true,
+                boxLabel   : _("Set browseable"),
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("This controls whether this share is seen in the list of available shares in a net view and in the browse list.")
+                }]
             }]
         },{
             xtype    : "fieldset",
@@ -76,7 +109,7 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
             defaults : {
                 labelSeparator : ""
             },
-            items : [{        
+            items : [{
                 border : false,
                 html   : "<p>" + _("Pool must contain at least two branches.") + "</p>"
             },{

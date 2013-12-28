@@ -32,6 +32,27 @@ index=0
 
 while [ ${index} -le ${count} ]; do
     share=$(omv_config_get "//services/aufs/share[position()=${index}]/smbsharename")
+    guestok=$(omv_config_get "//services/aufs/share[position()=${index}]/guestok")
+    readonly=$(omv_config_get "//services/aufs/share[position()=${index}]/readonly")
+    browseable=$(omv_config_get "//services/aufs/share[position()=${index}]/browseable")
+
+    if [ "${guestok}" == 1 ]; then
+        guestok="yes"
+    else
+        guestok="no"
+    fi
+
+    if [ "${readonly}" == 1 ]; then
+        readonly="yes"
+    else
+        readonly="no"
+    fi
+
+    if [ "${browseable}" == 1 ]; then
+        browseable="yes"
+    else
+        browseable="no"
+    fi
 
     if [ "${share}" != "" ]; then
         cat <<EOF >> ${OMV_SAMBA_CONFIG}
@@ -39,6 +60,9 @@ while [ ${index} -le ${count} ]; do
 comment = ${share}
 path = ${POOL_DIR}${share}
 wide links = yes
+guest ok = ${guestok}
+readonly = ${readonly}
+browseable = ${browseable}
 EOF
     fi
 

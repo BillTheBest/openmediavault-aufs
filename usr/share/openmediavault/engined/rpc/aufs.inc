@@ -231,8 +231,11 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
      * @return The deleted configuration object.
      */
     public function deleteShare($params, $context) {
+        global $xmlConfig;
+
         // Validate the RPC caller context.
         $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, '{
             "type"       : "object",
@@ -241,10 +244,27 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             }
         }');
 
-        // Delete the configuration object.
+        // Get the configuration object.
         $xpath = sprintf("//services/aufs/share[uuid='%s']", $params['uuid']);
+        $object = $xmlConfig->get($xpath);
+        if(is_null($object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+
+        $cmd = sprintf("export LANG=C; umount /media/%s", $object['poolname']);
+        $this->exec($cmd);
+
+        $cmd = sprintf("export LANG=C; rmdir /media/%s", $object['poolname']);
+        $this->exec($cmd);
+
+        // Delete the configuration object.
         $object = $this->deleteConfigObjectByPath($xpath,
             "org.openmediavault.services.aufs.share");
+
+        // Apply the changes immediately (no user interaction is wanted).
+        OMVRpc::exec("Config", "applyChanges", array(
+            "modules" => array("aufs"),
+            "force" => TRUE
+        ), $context);
 
         // Return the deleted configuration object.
         return $object;

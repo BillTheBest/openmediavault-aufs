@@ -160,6 +160,28 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             }
         }');
 
+        touch("/tmp/aufs_log.txt");
+
+        // Look for duplicates
+        for($i=0; $i<10; $i++) {
+            $sfRef = "sharedfolderref".$i;
+            $sfUuid = $params[$sfRef];
+
+            if(empty($sfUuid))
+                continue;
+
+            for($j=9; $j>$i; $j--) {
+                $sfRef2 = "sharedfolderref".$j;
+                $sfUuid2 = $params[$sfRef2];
+
+                if($sfUuid === $sfUuid2) {
+                    throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                        sprintf(gettext("A shared folder is used by branch #%s and #%s."),
+                        ($i+1), ($j+1) ));
+                }
+            }
+        }
+
         // Prepare the configuration object.
         $object = array(
             "uuid"             => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
@@ -204,6 +226,27 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         // Set the configuration object.
         $success = FALSE;
         if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+            // Check pool name uniqueness.
+            if(TRUE === $xmlConfig->exists("//services/aufs/share[poolname='{$params['poolname']}']")) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    sprintf(gettext("A pool with the name '%s' already exists"),
+                    $params['poolname']));
+            }
+
+            // Check samba share name uniqueness.
+            if(TRUE === $xmlConfig->exists("//services/aufs/share[smbsharename='{$params['smbsharename']}']")) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    sprintf(gettext("A aufs share with the name '%s' already exists"),
+                    $params['smbsharename']));
+
+            }
+
+            if(TRUE === $xmlConfig->exists("//services/smb/shares/share[name='{$params['smbsharename']}']")) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    sprintf(gettext("A Samba share with the name '%s' already exists"),
+                    $params['smbsharename']));
+            }
+
             // Append the configuration object.
             $success = $xmlConfig->set("//services/aufs", array("share" => $object));
         } else {

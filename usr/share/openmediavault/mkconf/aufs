@@ -24,7 +24,7 @@ OMV_FSTAB_CONFIG=${OMV_FSTAB_CONFIG:-"/etc/fstab"}
 OMV_FSTAB_SECTIONNAME="omvaufs"
 
 mntent=$(
-    echo -n "\n# >>> [${OMV_FSTAB_SECTIONNAME}]\n";
+    echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n";
     count=$(omv_config_get_count "//services/aufs/share");
     index=0;
     while [ ${index} -le ${count} ]; do

@@ -31,6 +31,7 @@ count=$(omv_config_get_count "//services/aufs/share")
 index=0
 
 while [ ${index} -le ${count} ]; do
+    pool=$(omv_config_get "//services/aufs/share[position()=${index}]/poolname")
     share=$(omv_config_get "//services/aufs/share[position()=${index}]/smbsharename")
     guestok=$(omv_config_get "//services/aufs/share[position()=${index}]/guestok")
     readonly=$(omv_config_get "//services/aufs/share[position()=${index}]/readonly")
@@ -57,8 +58,8 @@ while [ ${index} -le ${count} ]; do
     if [ "${share}" != "" ]; then
         cat <<EOF >> ${OMV_SAMBA_CONFIG}
 [${share}]
-comment = ${share}
-path = ${POOL_DIR}${share}
+comment = ${share} on ${pool}
+path = ${POOL_DIR}${pool}
 wide links = yes
 guest ok = ${guestok}
 readonly = ${readonly}

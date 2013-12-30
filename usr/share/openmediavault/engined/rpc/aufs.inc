@@ -176,7 +176,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
 
                 if($sfUuid === $sfUuid2) {
                     throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                        sprintf(gettext("A shared folder is used by branch #%s and #%s."),
+                        sprintf(gettext("The same shared folder is used by branch #%s and #%s."),
                         ($i+1), ($j+1) ));
                 }
             }
@@ -229,21 +229,21 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             // Check pool name uniqueness.
             if(TRUE === $xmlConfig->exists("//services/aufs/share[poolname='{$params['poolname']}']")) {
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    sprintf(gettext("A pool with the name '%s' already exists"),
+                    sprintf(gettext("A pool with the name '%s' already exists."),
                     $params['poolname']));
             }
 
             // Check samba share name uniqueness.
             if(TRUE === $xmlConfig->exists("//services/aufs/share[smbsharename='{$params['smbsharename']}']")) {
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    sprintf(gettext("A aufs share with the name '%s' already exists"),
+                    sprintf(gettext("A aufs sambashare with the name '%s' already exists."),
                     $params['smbsharename']));
 
             }
 
             if(TRUE === $xmlConfig->exists("//services/smb/shares/share[name='{$params['smbsharename']}']")) {
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    sprintf(gettext("A Samba share with the name '%s' already exists"),
+                    sprintf(gettext("A Samba share with the name '%s' already exists."),
                     $params['smbsharename']));
             }
 

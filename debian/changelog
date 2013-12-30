@@ -1,5 +1,5 @@
-openmediavault-aufs (0.5.0.40) stable; urgency=low
+openmediavault-aufs (0.5) stable; urgency=low
 
   * Initial release for OMV 0.5
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 15 Dec 2013 19:50:27 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 30 Dec 2013 14:06:27 -0500

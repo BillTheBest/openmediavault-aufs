@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-aufs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-07 11:51-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "A Samba share with the name '%s' already exists."
+msgstr ""
+
+msgid "A aufs sambashare with the name '%s' already exists."
+msgstr ""
+
+msgid "A directory will be created and mounted in /media/ using Pool Name."
+msgstr ""
+
+msgid "A pool with the name '%s' already exists."
+msgstr ""
+
+msgid "Add share"
+msgstr ""
+
+msgid "Branch #1"
+msgstr ""
+
+msgid "Branch #10"
+msgstr ""
+
+msgid "Branch #2"
+msgstr ""
+
+msgid "Branch #3"
+msgstr ""
+
+msgid "Branch #4"
+msgstr ""
+
+msgid "Branch #5"
+msgstr ""
+
+msgid "Branch #6"
+msgstr ""
+
+msgid "Branch #7"
+msgstr ""
+
+msgid "Branch #8"
+msgstr ""
+
+msgid "Branch #9"
+msgstr ""
+
+msgid "Branches"
+msgstr ""
+
+msgid "Browseable"
+msgstr ""
+
+msgid "Edit share"
+msgstr ""
+
+msgid "If enabled then no password is required to connect to the share"
+msgstr ""
+
+msgid "If this parameter is set, then users may not create or modify files in the share."
+msgstr ""
+
+msgid "Pool Name"
+msgstr ""
+
+msgid "Pool Settings"
+msgstr ""
+
+msgid "Pool must contain at least two branches."
+msgstr ""
+
+msgid "Pooling"
+msgstr ""
+
+msgid "Pools"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Read only"
+msgstr ""
+
+msgid "Samba Settings"
+msgstr ""
+
+msgid "Samba Share"
+msgstr ""
+
+msgid "Samba share name for pool. Leave blank to disable."
+msgstr ""
+
+msgid "Set browseable"
+msgstr ""
+
+msgid "Set read only"
+msgstr ""
+
+msgid "The same shared folder is used by branch #%s and #%s."
+msgstr ""
+
+msgid "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+msgstr ""

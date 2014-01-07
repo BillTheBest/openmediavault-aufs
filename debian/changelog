@@ -1,3 +1,10 @@
+openmediavault-aufs (0.5.1) stable; urgency=low
+
+  * Add locales
+  * Update copyrights
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 07 Jan 2014 11:46:27 -0500
+
 openmediavault-aufs (0.5) stable; urgency=low
 
   * Initial release for OMV 0.5

@@ -13,14 +13,15 @@ configure)
         omv_config_add_element "/config/services" "aufs" "${object}" true
     fi
     ;;
+
 abort-upgrade|abort-remove|abort-deconfigure)
     ;;
+
 *)
     echo "postinst called with unknown argument" >&2
     exit 1
     ;;
-esac
 
-#DEBHELPER#
+esac
 
 exit 0

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-08 08:16-0600\n"
+"POT-Creation-Date: 2014-01-08 10:25-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,9 @@ msgid "A directory will be created and mounted in /media/ using Pool Name."
 msgstr ""
 
 msgid "A pool with the name '%s' already exists."
+msgstr ""
+
+msgid "AUFS"
 msgstr ""
 
 msgid "Add share"
@@ -131,12 +134,6 @@ msgstr ""
 msgid "Samba share name for pool. Leave blank to disable."
 msgstr ""
 
-msgid "Selects a writable branch where the parent dir exists. When the parent dir exists on multiple writable branches, aufs selects the one which has more free space."
-msgstr ""
-
-msgid "Selects a writable branch which has most free space."
-msgstr ""
-
 msgid "Set browseable"
 msgstr ""
 
@@ -158,10 +155,13 @@ msgstr ""
 msgid "User's Direct Branch Access (UDBA)"
 msgstr ""
 
-msgid "create=mfs"
+msgid "aufs pools directories, 'branches', into one directory.  Using default options, aufs will write new files to the branch that has the most free space.  When adding files, the branch with the most free space changes. So, the branch with the most free space is re-evaluated every 30 seconds."
 msgstr ""
 
-msgid "create=pmfs"
+msgid "create=mfs - Selects a writable branch which has most free space."
+msgstr ""
+
+msgid "create=pmfs - Selects a writable branch where the parent directory exists. When the parent directory exists on multiple writable branches, aufs selects the one which has more free space."
 msgstr ""
 
 msgid "udba=notify"

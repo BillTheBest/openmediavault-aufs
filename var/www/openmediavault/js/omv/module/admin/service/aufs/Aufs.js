@@ -174,13 +174,19 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                 name       : "mfs",
                 fieldLabel : _("MFS"),
                 checked    : false,
-                boxLabel   : _("If unchecked, pmfs will be used. If checked, mfs will be used. See Info tab for explanation.")
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("If unchecked, pmfs will be used. If checked, mfs will be used. See Info tab for explanation.")
+                }]
             },{
                 xtype      : "checkbox",
                 name       : "udba",
                 fieldLabel : _("UDBA"),
-                checked    : false,
-                boxLabel   : _("If unchecked, notify will be used.  If checked, reval will be used. See Info tab for explanation.")
+                checked    : true,
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("If unchecked, notify will be used.  If checked, reval will be used. See Info tab for explanation.")
+                }]
             }]
         }];
     }

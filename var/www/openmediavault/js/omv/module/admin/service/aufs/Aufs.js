@@ -163,6 +163,25 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                 fieldLabel : _("Branch #10"),
                 allowBlank : true
             }]
+        },{
+            xtype    : "fieldset",
+            title    : _("Advanced Settings"),
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
+                xtype      : "checkbox",
+                name       : "mfs",
+                fieldLabel : _("MFS"),
+                checked    : false,
+                boxLabel   : _("If unchecked, pmfs will be used. If checked, mfs will be used. See Info tab for explanation.")
+            },{
+                xtype      : "checkbox",
+                name       : "udba",
+                fieldLabel : _("UDBA"),
+                checked    : false,
+                boxLabel   : _("If unchecked, notify will be used.  If checked, reval will be used. See Info tab for explanation.")
+            }]
         }];
     }
 });

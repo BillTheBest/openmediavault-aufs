@@ -119,6 +119,13 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         $object = $xmlConfig->get($xpath);
         if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
+        
+        // Modify the result object.
+        $object['guestok']    = boolval($object['guestok']);
+        $object['readonly']   = boolval($object['readonly']);
+        $object['browseable'] = boolval($object['browseable']);
+        $object['mfs']        = boolval($object['mfs']);
+        $object['udba']       = boolval($object['udba']);
 
         return $object;
     }
@@ -157,7 +164,9 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
                 "sharedfolderref6" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
                 "sharedfolderref7" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
                 "sharedfolderref8" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref9" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true }
+                "sharedfolderref9" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
+                "mfs"              : { "type" : "boolean" },
+                "udba"             : { "type" : "boolean" }
             }
         }');
 
@@ -200,12 +209,24 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             "sharedfolderref6" => $params['sharedfolderref6'],
             "sharedfolderref7" => $params['sharedfolderref7'],
             "sharedfolderref8" => $params['sharedfolderref8'],
-            "sharedfolderref9" => $params['sharedfolderref9']
+            "sharedfolderref9" => $params['sharedfolderref9'],
+            "mfs"              => array_boolval($params, 'mfs'),
+            "udba"             => array_boolval($params, 'udba')
         );
 
         // Create fstab line
-        // none /storage aufs br:/media/disk1=rw:/media/disk2=rw,sum,create=mfs 0 0
+        // none /storage aufs br:/media/disk1=rw:/media/disk2=rw,sum,create=mfs,udba=notify 0 0
         $sf = "";
+
+        if($object['mfs'] === true)
+            $mfs = "mfs";
+        else
+            $mfs = "pmfs";
+
+        if($object['udba'] === true)
+            $udba = "reval";
+        else
+            $udba = "notify";
 
         for($i=0; $i<10; $i++) {
             $sfRef = "sharedfolderref".$i;
@@ -218,7 +239,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $params[$sfRef]), $context);
             $sf .= ":".$sfPath."=rw";
         }
-        $object['fstab_line'] = "none /media/".$object['poolname']." aufs br".$sf.",sum,create=mfs 0 0";
+        $object['fstab_line'] = "none /media/".$object['poolname']." aufs br".$sf.",sum,create=".$mfs.",udba=".$udba." 0 0";
 
         // Make pooling directory
         if( ! file_exists("/media/".$object['poolname']) )

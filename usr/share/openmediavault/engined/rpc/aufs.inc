@@ -119,7 +119,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         $object = $xmlConfig->get($xpath);
         if(is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
-        
+
         // Modify the result object.
         $object['guestok']    = boolval($object['guestok']);
         $object['readonly']   = boolval($object['readonly']);

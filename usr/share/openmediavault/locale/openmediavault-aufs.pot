@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 11:51-0600\n"
+"POT-Creation-Date: 2014-01-08 08:16-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,15 @@ msgid "A pool with the name '%s' already exists."
 msgstr ""
 
 msgid "Add share"
+msgstr ""
+
+msgid "Advanced Settings"
+msgstr ""
+
+msgid "Aufs sets either 'fsnotify' or 'inotify' to all the accessed directories on its branches and receives the event about the dir and its children. It consumes resources, cpu and memory. Performance will be hurt, but it is most strict test level. When a user accesses the file which was notified UDBA before, the cached data about the file will be discarded and aufs will re-lookup it."
+msgstr ""
+
+msgid "Aufs tests only the existence of the file which existed. If the existed file was removed on the branch directly, aufs discard the cache about the file and re-lookup it. So the data will be updated. This test is at minimum level to keep the performance and ensure the existence of a file. This is default and aufs runs still fast."
 msgstr ""
 
 msgid "Branch #1"
@@ -77,6 +86,21 @@ msgstr ""
 msgid "If this parameter is set, then users may not create or modify files in the share."
 msgstr ""
 
+msgid "If unchecked, notify will be used.  If checked, reval will be used. See Info tab for explanation."
+msgstr ""
+
+msgid "If unchecked, pmfs will be used. If checked, mfs will be used. See Info tab for explanation."
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "MFS"
+msgstr ""
+
+msgid "Most-Free-Space (MFS)"
+msgstr ""
+
 msgid "Pool Name"
 msgstr ""
 
@@ -107,6 +131,12 @@ msgstr ""
 msgid "Samba share name for pool. Leave blank to disable."
 msgstr ""
 
+msgid "Selects a writable branch where the parent dir exists. When the parent dir exists on multiple writable branches, aufs selects the one which has more free space."
+msgstr ""
+
+msgid "Selects a writable branch which has most free space."
+msgstr ""
+
 msgid "Set browseable"
 msgstr ""
 
@@ -117,4 +147,25 @@ msgid "The same shared folder is used by branch #%s and #%s."
 msgstr ""
 
 msgid "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+msgstr ""
+
+msgid "UDBA"
+msgstr ""
+
+msgid "UDBA means a modification to a branch filesystem manually or directly, e.g. bypassing aufs. While aufs is designed and implemented to be safe after UDBA, it can make yourself and your aufs confused. And some information like aufs inode will be incorrect. For example, if you rename a file on a branch directly, the file on aufs may or may not be accessible through both of old and new name. Because aufs caches various information about the files on branches. And the cache still remains after UDBA. Aufs has a mount option named 'udba' which specifies the test level at access time whether UDBA was happened or not."
+msgstr ""
+
+msgid "User's Direct Branch Access (UDBA)"
+msgstr ""
+
+msgid "create=mfs"
+msgstr ""
+
+msgid "create=pmfs"
+msgstr ""
+
+msgid "udba=notify"
+msgstr ""
+
+msgid "udba=reval"
 msgstr ""

@@ -59,5 +59,3 @@ else
 fi
 
 mount -a
-
-omv-mkconf samba

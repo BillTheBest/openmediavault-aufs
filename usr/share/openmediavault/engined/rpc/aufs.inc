@@ -129,9 +129,6 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
         // Modify the result object.
-        $object['guestok']    = boolval($object['guestok']);
-        $object['readonly']   = boolval($object['readonly']);
-        $object['browseable'] = boolval($object['browseable']);
         $object['mfs']        = boolval($object['mfs']);
         $object['udba']       = boolval($object['udba']);
 
@@ -160,10 +157,6 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
                 "uuid"             : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
                 "poolname"         : { "type" : "string" },
                 "sharedfolderbind" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
-                "smbsharename"     : { "type" : "string", "optional" : true },
-                "guestok"          : { "type" : "boolean" },
-                "readonly"         : { "type" : "boolean" },
-                "browseable"       : { "type" : "boolean" },
                 "sharedfolderref0" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
                 "sharedfolderref1" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
                 "sharedfolderref2" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
@@ -179,13 +172,11 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             }
         }');
 
-        touch("/tmp/aufs_log.txt");
-
         $bindUuid = $params["sharedfolderbind"];
 
         // Look for duplicates
-        if(!empty($bindUuid)) {
-            if(TRUE === $xmlConfig->exists("//services/aufs/share[" . "sharedfolderbind='{$bindUuid}']")) {
+        if(!empty($bindUuid) && $params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+            if(TRUE === $xmlConfig->exists("//services/aufs/share[sharedfolderbind='{$bindUuid}']")) {
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
                     gettext("This bind share is already in use by branch in another pool."));
             }
@@ -198,7 +189,9 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             if(empty($sfUuid))
                 continue;
 
-            if(TRUE === $xmlConfig->exists("//services/aufs/share[" . "{$sfRef}='{$bindUuid}']")) {
+            if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED'] &&
+                TRUE === $xmlConfig->exists("//services/aufs/share[{$sfRef}='{$bindUuid}']")) {
+
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
                     gettext("This bind share is already in use by branch in another pool."));
             }
@@ -297,12 +290,6 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
                     sprintf(gettext("A aufs sambashare with the name '%s' already exists."),
                     $params['smbsharename']));
 
-            }
-
-            if(TRUE === $xmlConfig->exists("//services/smb/shares/share[name='{$params['smbsharename']}']")) {
-                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    sprintf(gettext("A Samba share with the name '%s' already exists."),
-                    $params['smbsharename']));
             }
 
             // Append the configuration object.

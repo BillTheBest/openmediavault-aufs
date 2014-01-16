@@ -84,6 +84,14 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
                     $branches .= $sfObject['name']."<br/>";
             }
 
+            // Get the shared folder configuration object for the bind share.
+            $objectv['bindsharename'] = "";
+            if(!empty($objectv["sharedfolderbind"])) {
+                $sfObject = $xmlConfig->get("//system/shares/sharedfolder[uuid='{$objectv["sharedfolderbind"]}']");
+                if(!is_null($sfObject) && !empty($sfObject))
+                    $objectv['bindsharename'] = $sfObject['name'];
+            }
+
             $objectv['branches'] = $branches;
         }
 
@@ -197,7 +205,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
 
             if($sfUuid === $bindUuid) {
                 throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-                    sprintf(gettext("The same shared folder is used by bind share and #%s."), ($i+1) ));
+                    sprintf(gettext("The same shared folder is used by bind share and branch #%s."), ($i+1) ));
             }
 
             for($j=9; $j>$i; $j--) {

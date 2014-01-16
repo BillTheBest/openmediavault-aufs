@@ -43,7 +43,8 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
         ptype : "configobject"
     }],
 
-    width        : 500,
+    width        : 625,
+    height       : 550,
 
     getFormItems: function() {
         var me = this;
@@ -231,6 +232,11 @@ Ext.define("OMV.module.admin.service.aufs.Shares", {
         dataIndex : "poolname",
         stateId   : "poolname"
     },{
+        text      : _("Bind Share"),
+        sortable  : true,
+        dataIndex : "bindsharename",
+        stateId   : "bindsharename"
+    },{
         text      : _("Samba Share"),
         sortable  : true,
         dataIndex : "smbsharename",
@@ -252,6 +258,7 @@ Ext.define("OMV.module.admin.service.aufs.Shares", {
                     fields      : [
                         { name : "uuid", type: "string" },
                         { name : "poolname", type: "string" },
+                        { name : "bindsharename", type: "string" },
                         { name : "smbsharename", type: "string" },
                         { name : "branches", type: "string" }
                     ]

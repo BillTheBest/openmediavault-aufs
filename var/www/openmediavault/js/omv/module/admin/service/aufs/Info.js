@@ -29,6 +29,24 @@ Ext.define("OMV.module.admin.service.aufs.Info", {
                   "<p>" +
                     _("aufs pools directories, 'branches', into one directory.  Using default options, aufs will write new files to the branch that has the most free space.  When adding files, the branch with the most free space changes. So, the branch with the most free space is re-evaluated every 30 seconds.") +
                   "</p>" +
+                  "<b>" + _("Bind Share") + "</b>" +
+                  "<p>" +
+                    _("This will bind mount the Aufs pool to the selected share for use in other plugins. It cannot be a share used in an Aufs branch or another bind share.") +
+                  "</p>" +
+                  "<ul>" +
+                    "<li>" +
+                      _("udba=reval") +
+                      "<p>" +
+                      _("Aufs tests only the existence of the file which existed. If the existed file was removed on the branch directly, aufs discard the cache about the file and re-lookup it. So the data will be updated. This test is at minimum level to keep the performance and ensure the existence of a file. This is default and aufs runs still fast.") +
+                      "</p>" +
+                    "</li>" +
+                    "<li>" +
+                      _("udba=notify") +
+                      "<p>" +
+                      _("Aufs sets either 'fsnotify' or 'inotify' to all the accessed directories on its branches and receives the event about the dir and its children. It consumes resources, cpu and memory. Performance will be hurt, but it is most strict test level. When a user accesses the file which was notified UDBA before, the cached data about the file will be discarded and aufs will re-lookup it.") +
+                      "</p>" +
+                    "</li>" +
+                  "</ul>" +
                   "<b>" + _("User's Direct Branch Access (UDBA)") + "</b>" +
                   "<p>" +
                     _("UDBA means a modification to a branch filesystem manually or directly, e.g. bypassing aufs. While aufs is designed and implemented to be safe after UDBA, it can make yourself and your aufs confused. And some information like aufs inode will be incorrect. For example, if you rename a file on a branch directly, the file on aufs may or may not be accessible through both of old and new name. Because aufs caches various information about the files on branches. And the cache still remains after UDBA. Aufs has a mount option named 'udba' which specifies the test level at access time whether UDBA was happened or not.") +

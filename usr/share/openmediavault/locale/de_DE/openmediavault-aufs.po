@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 11:46-0600\n"
-"PO-Revision-Date: 2014-01-16 17:46+0000\n"
+"POT-Creation-Date: 2014-01-16 12:43-0600\n"
+"PO-Revision-Date: 2014-01-16 18:43+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault-aufs/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "A Samba share with the name '%s' already exists."
-msgstr "Eine SMB Freigabe mit dem Namen '%s' existiert bereits."
 
 msgid "A aufs sambashare with the name '%s' already exists."
 msgstr "Eine aufs SMB Freigabe mit dem Namen '%s' existiert bereits."
@@ -92,19 +89,8 @@ msgstr "Zweig #9"
 msgid "Branches"
 msgstr "Zweige"
 
-msgid "Browseable"
-msgstr "Durchsuchbar"
-
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
-
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Wenn aktiviert, wird kein Passwort zum Verbinden der Freigabe benötigt"
-
-msgid ""
-"If this parameter is set, then users may not create or modify files in the "
-"share."
-msgstr "Wenn aktiviert, können Benutzer dieser Freigabe keine Dateien anlegen oder ändern."
 
 msgid ""
 "If unchecked, notify will be used.  If checked, reval will be used. See Info"
@@ -140,27 +126,6 @@ msgstr "Pooling"
 msgid "Pools"
 msgstr "Pools"
 
-msgid "Public"
-msgstr "Öffentlich"
-
-msgid "Read only"
-msgstr "Nur lesen"
-
-msgid "Samba Settings"
-msgstr "SMB Einstellungen"
-
-msgid "Samba Share"
-msgstr "SMB Freigabe"
-
-msgid "Samba share name for pool. Leave blank to disable."
-msgstr "SMB Freigabe Name für Pool. Freilassen um die Funktion zu deaktivieren."
-
-msgid "Set browseable"
-msgstr "Durchsuchbar"
-
-msgid "Set read only"
-msgstr "Nur lesen"
-
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
 
@@ -171,11 +136,6 @@ msgid "The same shared folder is used by branch #%s and #%s."
 msgstr "Der selbe freigegebene Ordner wird bereits von Zweig #%s und #%s benutzt."
 
 msgid "This bind share is already in use by branch in another pool."
-msgstr ""
-
-msgid ""
-"This controls whether this share is seen in the list of available shares in "
-"a net view and in the browse list."
 msgstr ""
 
 msgid ""

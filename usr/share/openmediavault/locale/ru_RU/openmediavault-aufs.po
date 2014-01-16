@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 11:46-0600\n"
-"PO-Revision-Date: 2014-01-16 17:46+0000\n"
+"POT-Creation-Date: 2014-01-16 12:43-0600\n"
+"PO-Revision-Date: 2014-01-16 18:43+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault-aufs/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-msgid "A Samba share with the name '%s' already exists."
-msgstr "Общая папка Samba с именем '%s' уже существует."
 
 msgid "A aufs sambashare with the name '%s' already exists."
 msgstr ""
@@ -92,19 +89,8 @@ msgstr "Ответвление #9"
 msgid "Branches"
 msgstr "Ответвления"
 
-msgid "Browseable"
-msgstr "Просматриваемое"
-
 msgid "Edit share"
 msgstr "Редактировать общую папку"
-
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Если включено, то для подключения к общему ресурсу пароль не требуется"
-
-msgid ""
-"If this parameter is set, then users may not create or modify files in the "
-"share."
-msgstr "Если этот параметр установлен, пользователи не смогут создавать или изменять файлы на общем ресурсе."
 
 msgid ""
 "If unchecked, notify will be used.  If checked, reval will be used. See Info"
@@ -140,27 +126,6 @@ msgstr "Объединение"
 msgid "Pools"
 msgstr "Пулы"
 
-msgid "Public"
-msgstr ""
-
-msgid "Read only"
-msgstr "Только чтение"
-
-msgid "Samba Settings"
-msgstr ""
-
-msgid "Samba Share"
-msgstr ""
-
-msgid "Samba share name for pool. Leave blank to disable."
-msgstr ""
-
-msgid "Set browseable"
-msgstr ""
-
-msgid "Set read only"
-msgstr "Установить только для чтения"
-
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
 
@@ -171,11 +136,6 @@ msgid "The same shared folder is used by branch #%s and #%s."
 msgstr ""
 
 msgid "This bind share is already in use by branch in another pool."
-msgstr ""
-
-msgid ""
-"This controls whether this share is seen in the list of available shares in "
-"a net view and in the browse list."
 msgstr ""
 
 msgid ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 11:46-0600\n"
-"PO-Revision-Date: 2014-01-16 17:46+0000\n"
+"POT-Creation-Date: 2014-01-16 12:43-0600\n"
+"PO-Revision-Date: 2014-01-16 18:43+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/openmediavault-aufs/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "A Samba share with the name '%s' already exists."
-msgstr ""
 
 msgid "A aufs sambashare with the name '%s' already exists."
 msgstr ""
@@ -91,18 +88,7 @@ msgstr ""
 msgid "Branches"
 msgstr ""
 
-msgid "Browseable"
-msgstr ""
-
 msgid "Edit share"
-msgstr ""
-
-msgid "If enabled then no password is required to connect to the share"
-msgstr ""
-
-msgid ""
-"If this parameter is set, then users may not create or modify files in the "
-"share."
 msgstr ""
 
 msgid ""
@@ -139,27 +125,6 @@ msgstr ""
 msgid "Pools"
 msgstr ""
 
-msgid "Public"
-msgstr ""
-
-msgid "Read only"
-msgstr ""
-
-msgid "Samba Settings"
-msgstr ""
-
-msgid "Samba Share"
-msgstr ""
-
-msgid "Samba share name for pool. Leave blank to disable."
-msgstr ""
-
-msgid "Set browseable"
-msgstr ""
-
-msgid "Set read only"
-msgstr ""
-
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
 
@@ -170,11 +135,6 @@ msgid "The same shared folder is used by branch #%s and #%s."
 msgstr ""
 
 msgid "This bind share is already in use by branch in another pool."
-msgstr ""
-
-msgid ""
-"This controls whether this share is seen in the list of available shares in "
-"a net view and in the browse list."
 msgstr ""
 
 msgid ""

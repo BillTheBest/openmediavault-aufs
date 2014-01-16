@@ -1,3 +1,10 @@
+openmediavault-aufs (0.5.3) stable; urgency=low
+
+  * Add bind mount share
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 16 Jan 2014 11:23:27 -0500
+
 openmediavault-aufs (0.5.2) stable; urgency=low
 
   * Add mfs and udba options

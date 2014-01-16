@@ -9,3 +9,11 @@ Package: openmediavault-aufs
 Architecture: all
 Depends: openmediavault (>= 0.5.14), aufs-tools
 Description: aufs plugin for OpenMediaVault.
+ Aufs is a stackable unification filesystem, which unifies several
+ directories and provides a merged single directory.
+ .
+ Directories are called branches and pooled into one share. When
+ files are written to the pool, they are evenly distributed across
+ the branches. Branches can be on the same drive or different drives.
+ Drives can be the same or different sizes. While aufs does not
+ offer any redundancy, only the files on a failed drive will be lost.

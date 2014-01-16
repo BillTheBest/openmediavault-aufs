@@ -62,6 +62,16 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                     ptype : "fieldinfo",
                     text  : _("A directory will be created and mounted in /media/ using Pool Name.")
                 }]
+            },{
+                xtype      : "sharedfoldercombo",
+                name       : "sharedfolderbind",
+                fieldLabel : _("Bind Share"),
+                allowNone  : true,
+                allowBlank : true,
+                plugins    : [{
+                    ptype : "fieldinfo",
+                    text  : _("The pool will bind mounted to this share for use in other plugins.")
+                }]
             }]
         },{
             xtype    : "fieldset",
@@ -126,41 +136,49 @@ Ext.define("OMV.module.admin.service.aufs.Share", {
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref2",
                 fieldLabel : _("Branch #3"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref3",
                 fieldLabel : _("Branch #4"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref4",
                 fieldLabel : _("Branch #5"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref5",
                 fieldLabel : _("Branch #6"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref6",
                 fieldLabel : _("Branch #7"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref7",
                 fieldLabel : _("Branch #8"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref8",
                 fieldLabel : _("Branch #9"),
+                allowNone  : true,
                 allowBlank : true
             },{
                 xtype      : "sharedfoldercombo",
                 name       : "sharedfolderref9",
                 fieldLabel : _("Branch #10"),
+                allowNone  : true,
                 allowBlank : true
             }]
         },{

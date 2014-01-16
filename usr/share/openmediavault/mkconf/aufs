@@ -26,14 +26,29 @@ OMV_FSTAB_SECTIONNAME="omvaufs"
 mntent=$(
     echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n";
     count=$(omv_config_get_count "//services/aufs/share");
+
+    # aufs entries
     index=0;
     while [ ${index} -le ${count} ]; do
         entry=$(omv_config_get "//services/aufs/share[position()=${index}]/fstab_line")
         if [ "${entry}" != "" ]; then
             echo -n "${entry}\n"
         fi
+
         index=$(( ${index} + 1 ))
     done;
+
+    # bind mount entries
+    index=0;
+    while [ ${index} -le ${count} ]; do
+        entry=$(omv_config_get "//services/aufs/share[position()=${index}]/fstab_bind")
+        if [ "${entry}" != "" ]; then
+            echo -n "${entry}\n"
+        fi
+
+        index=$(( ${index} + 1 ))
+    done;
+
     echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
 
 # Append mount entries if not still present or replace existing entries.

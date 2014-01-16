@@ -151,20 +151,21 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             "properties" : {
                 "uuid"             : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].' },
                 "poolname"         : { "type" : "string" },
+                "sharedfolderbind" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
                 "smbsharename"     : { "type" : "string", "optional" : true },
                 "guestok"          : { "type" : "boolean" },
                 "readonly"         : { "type" : "boolean" },
                 "browseable"       : { "type" : "boolean" },
                 "sharedfolderref0" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
                 "sharedfolderref1" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].' },
-                "sharedfolderref2" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref3" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref4" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref5" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref6" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref7" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref8" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
-                "sharedfolderref9" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID'].', "optional" : true },
+                "sharedfolderref2" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref3" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref4" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref5" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref6" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref7" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref8" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
+                "sharedfolderref9" : { '.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].', "optional" : true },
                 "mfs"              : { "type" : "boolean" },
                 "udba"             : { "type" : "boolean" }
             }
@@ -172,13 +173,32 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
 
         touch("/tmp/aufs_log.txt");
 
+        $bindUuid = $params["sharedfolderbind"];
+
         // Look for duplicates
+        if(!empty($bindUuid)) {
+            if(TRUE === $xmlConfig->exists("//services/aufs/share[" . "sharedfolderbind='{$bindUuid}']")) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    gettext("This bind share is already in use by branch in another pool."));
+            }
+        }
+
         for($i=0; $i<10; $i++) {
             $sfRef = "sharedfolderref".$i;
             $sfUuid = $params[$sfRef];
 
             if(empty($sfUuid))
                 continue;
+
+            if(TRUE === $xmlConfig->exists("//services/aufs/share[" . "{$sfRef}='{$bindUuid}']")) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    gettext("This bind share is already in use by branch in another pool."));
+            }
+
+            if($sfUuid === $bindUuid) {
+                throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+                    sprintf(gettext("The same shared folder is used by bind share and #%s."), ($i+1) ));
+            }
 
             for($j=9; $j>$i; $j--) {
                 $sfRef2 = "sharedfolderref".$j;
@@ -196,6 +216,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         $object = array(
             "uuid"             => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ? OMVUtil::uuid() : $params['uuid'],
             "poolname"         => $params['poolname'],
+            "sharedfolderbind" => $params['sharedfolderbind'],
             "smbsharename"     => $params['smbsharename'],
             "guestok"          => array_boolval($params, 'guestok'),
             "readonly"         => array_boolval($params, 'readonly'),
@@ -244,6 +265,13 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         // Make pooling directory
         if( ! file_exists("/media/".$object['poolname']) )
             mkdir("/media/".$object['poolname']);
+
+        // Create bind fstab line
+        // /media/poolname  /media/uuid/sharedfoldername  none  bind  0 0
+        if(!empty($bindUuid)) {
+            $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $bindUuid), $context);
+            $object['fstab_bind'] = "/media/".$object['poolname']."  ".$sfPath."  none  bind  0 0";
+        }
 
         // Set the configuration object.
         $success = FALSE;

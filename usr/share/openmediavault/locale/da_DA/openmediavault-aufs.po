@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-08 10:25-0600\n"
-"PO-Revision-Date: 2014-01-08 16:22+0000\n"
+"POT-Creation-Date: 2014-01-16 11:28-0600\n"
+"PO-Revision-Date: 2014-01-16 17:29+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-aufs/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,9 @@ msgid ""
 "and re-lookup it. So the data will be updated. This test is at minimum level"
 " to keep the performance and ensure the existence of a file. This is default"
 " and aufs runs still fast."
+msgstr ""
+
+msgid "Bind Share"
 msgstr ""
 
 msgid "Branch #1"
@@ -157,12 +160,26 @@ msgstr ""
 msgid "Set read only"
 msgstr ""
 
+msgid "The pool will bind mounted to this share for use in other plugins."
+msgstr ""
+
+msgid "The same shared folder is used by bind share and #%s."
+msgstr ""
+
 msgid "The same shared folder is used by branch #%s and #%s."
+msgstr ""
+
+msgid "This bind share is already in use by branch in another pool."
 msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
+msgstr ""
+
+msgid ""
+"This will bind mount the Aufs pool to the selected share for use in other "
+"plugins. It cannot be a share used in an Aufs branch or another bind share."
 msgstr ""
 
 msgid "UDBA"

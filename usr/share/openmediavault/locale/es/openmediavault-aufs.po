@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
@@ -11,33 +10,33 @@ msgstr ""
 "POT-Creation-Date: 2014-01-16 11:28-0600\n"
 "PO-Revision-Date: 2014-01-16 17:29+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-aufs/language/zh_CN/)\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/openmediavault-aufs/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A Samba share with the name '%s' already exists."
-msgstr "Samba共享名称 '%s' 已经存在。"
+msgstr ""
 
 msgid "A aufs sambashare with the name '%s' already exists."
-msgstr "aufs samba共享名称 '%s' 已经存在。"
+msgstr ""
 
 msgid "A directory will be created and mounted in /media/ using Pool Name."
-msgstr "将创建一个目录挂载到 /media/ 作为存储池名称。"
+msgstr ""
 
 msgid "A pool with the name '%s' already exists."
-msgstr "存储池名称 '%s' 已经存在。"
+msgstr ""
 
 msgid "AUFS"
-msgstr "AUFS"
+msgstr ""
 
 msgid "Add share"
-msgstr "添加共享"
+msgstr ""
 
 msgid "Advanced Settings"
-msgstr "高级设置"
+msgstr ""
 
 msgid ""
 "Aufs sets either 'fsnotify' or 'inotify' to all the accessed directories on "
@@ -60,51 +59,51 @@ msgid "Bind Share"
 msgstr ""
 
 msgid "Branch #1"
-msgstr "分支 #1"
+msgstr ""
 
 msgid "Branch #10"
-msgstr "分支 #10"
+msgstr ""
 
 msgid "Branch #2"
-msgstr "分支 #2"
+msgstr ""
 
 msgid "Branch #3"
-msgstr "分支 #3"
+msgstr ""
 
 msgid "Branch #4"
-msgstr "分支 #4"
+msgstr ""
 
 msgid "Branch #5"
-msgstr "分支 #5"
+msgstr ""
 
 msgid "Branch #6"
-msgstr "分支 #6"
+msgstr ""
 
 msgid "Branch #7"
-msgstr "分支 #7"
+msgstr ""
 
 msgid "Branch #8"
-msgstr "分支 #8"
+msgstr ""
 
 msgid "Branch #9"
-msgstr "分支 #9"
+msgstr ""
 
 msgid "Branches"
-msgstr "分支"
+msgstr ""
 
 msgid "Browseable"
-msgstr "可浏览"
+msgstr ""
 
 msgid "Edit share"
-msgstr "编辑共享"
+msgstr ""
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr "如果启用那么不需要密码也能链接到共享"
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "如果设定此参数，用户将无法修改或创建共享中的文件。"
+msgstr ""
 
 msgid ""
 "If unchecked, notify will be used.  If checked, reval will be used. See Info"
@@ -117,49 +116,49 @@ msgid ""
 msgstr ""
 
 msgid "Information"
-msgstr "信息"
+msgstr ""
 
 msgid "MFS"
-msgstr "MFS"
+msgstr ""
 
 msgid "Most-Free-Space (MFS)"
-msgstr "最多可用空间 (MFS)"
+msgstr ""
 
 msgid "Pool Name"
-msgstr "存储池名称"
+msgstr ""
 
 msgid "Pool Settings"
-msgstr "存储池设定"
+msgstr ""
 
 msgid "Pool must contain at least two branches."
-msgstr "存储池必须至少包含两个分部。"
+msgstr ""
 
 msgid "Pooling"
-msgstr "aufs 存储池"
+msgstr ""
 
 msgid "Pools"
-msgstr "存储池"
+msgstr ""
 
 msgid "Public"
-msgstr "公开"
+msgstr ""
 
 msgid "Read only"
-msgstr "只读"
+msgstr ""
 
 msgid "Samba Settings"
-msgstr "Samba 设置"
+msgstr ""
 
 msgid "Samba Share"
-msgstr "Samba 共享"
+msgstr ""
 
 msgid "Samba share name for pool. Leave blank to disable."
-msgstr "存储池 Samba 共享的名称，留空将禁用。"
+msgstr ""
 
 msgid "Set browseable"
-msgstr "设置可浏览"
+msgstr ""
 
 msgid "Set read only"
-msgstr "设置只读"
+msgstr ""
 
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
@@ -168,7 +167,7 @@ msgid "The same shared folder is used by bind share and #%s."
 msgstr ""
 
 msgid "The same shared folder is used by branch #%s and #%s."
-msgstr "该共享文件夹已经用于分支  #%s 和 #%s。"
+msgstr ""
 
 msgid "This bind share is already in use by branch in another pool."
 msgstr ""
@@ -176,7 +175,7 @@ msgstr ""
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "该参数设置后共享会出现在网络的共享列表中。"
+msgstr ""
 
 msgid ""
 "This will bind mount the Aufs pool to the selected share for use in other "
@@ -184,7 +183,7 @@ msgid ""
 msgstr ""
 
 msgid "UDBA"
-msgstr "UDBA"
+msgstr ""
 
 msgid ""
 "UDBA means a modification to a branch filesystem manually or directly, e.g. "

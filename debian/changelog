@@ -1,6 +1,7 @@
 openmediavault-aufs (0.5.3) stable; urgency=low
 
   * Add bind mount share
+  * Remove samba share settings
   * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 16 Jan 2014 11:23:27 -0500

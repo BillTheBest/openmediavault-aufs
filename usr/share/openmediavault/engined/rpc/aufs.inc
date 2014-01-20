@@ -257,7 +257,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $params[$sfRef]), $context);
             $sf .= ":".$sfPath."=rw";
         }
-        $poolname = str_replace(" ", "\\040", $object['poolname']);
+        $poolname = str_replace(" ", "\\\\040", $object['poolname']);
         $object['fstab_line'] = "none /media/".$poolname." aufs br".$sf.",sum,create=".$mfs.",udba=".$udba." 0 0";
 
         // Make pooling directory

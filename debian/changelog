@@ -1,3 +1,10 @@
+openmediavault-aufs (0.5.4) stable; urgency=low
+
+  * Handle pool names with spaces properly
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 20 Jan 2014 16:32:27 -0500
+
 openmediavault-aufs (0.5.3) stable; urgency=low
 
   * Add bind mount share

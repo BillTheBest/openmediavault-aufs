@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 12:52-0600\n"
+"POT-Creation-Date: 2014-01-20 16:31-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,16 @@ msgstr ""
 msgid "Branches"
 msgstr ""
 
+msgid "Create a shared folder for each drive - d1, d2, d3."
+msgstr ""
+
+msgid "Create a shared folder on any drive called poolshare."
+msgstr ""
+
 msgid "Edit share"
+msgstr ""
+
+msgid "Example setup - 3 drives"
 msgstr ""
 
 msgid "If unchecked, notify will be used.  If checked, reval will be used. See Info tab for explanation."
@@ -110,6 +119,12 @@ msgstr ""
 msgid "Pools"
 msgstr ""
 
+msgid "Set the bind share as pool share."
+msgstr ""
+
+msgid "Set three branches as d1, d2, d3."
+msgstr ""
+
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
 
@@ -129,6 +144,9 @@ msgid "UDBA"
 msgstr ""
 
 msgid "UDBA means a modification to a branch filesystem manually or directly, e.g. bypassing aufs. While aufs is designed and implemented to be safe after UDBA, it can make yourself and your aufs confused. And some information like aufs inode will be incorrect. For example, if you rename a file on a branch directly, the file on aufs may or may not be accessible through both of old and new name. Because aufs caches various information about the files on branches. And the cache still remains after UDBA. Aufs has a mount option named 'udba' which specifies the test level at access time whether UDBA was happened or not."
+msgstr ""
+
+msgid "Use the poolshare shared folder in other plugins. No need to use d1,d2,d3 in any plugin."
 msgstr ""
 
 msgid "User's Direct Branch Access (UDBA)"

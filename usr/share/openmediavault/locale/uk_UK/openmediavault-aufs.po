@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 12:52-0600\n"
-"PO-Revision-Date: 2014-01-16 18:43+0000\n"
+"POT-Creation-Date: 2014-01-20 16:31-0600\n"
+"PO-Revision-Date: 2014-01-20 22:31+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault-aufs/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -89,8 +89,17 @@ msgstr ""
 msgid "Branches"
 msgstr ""
 
+msgid "Create a shared folder for each drive - d1, d2, d3."
+msgstr ""
+
+msgid "Create a shared folder on any drive called poolshare."
+msgstr ""
+
 msgid "Edit share"
 msgstr "Редагувати спільний ресурс"
+
+msgid "Example setup - 3 drives"
+msgstr ""
 
 msgid ""
 "If unchecked, notify will be used.  If checked, reval will be used. See Info"
@@ -126,6 +135,12 @@ msgstr ""
 msgid "Pools"
 msgstr ""
 
+msgid "Set the bind share as pool share."
+msgstr ""
+
+msgid "Set three branches as d1, d2, d3."
+msgstr ""
+
 msgid "The pool will bind mounted to this share for use in other plugins."
 msgstr ""
 
@@ -156,6 +171,11 @@ msgid ""
 "branches. And the cache still remains after UDBA. Aufs has a mount option "
 "named 'udba' which specifies the test level at access time whether UDBA was "
 "happened or not."
+msgstr ""
+
+msgid ""
+"Use the poolshare shared folder in other plugins. No need to use d1,d2,d3 in"
+" any plugin."
 msgstr ""
 
 msgid "User's Direct Branch Access (UDBA)"

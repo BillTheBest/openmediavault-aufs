@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-aufs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 12:52-0600\n"
-"PO-Revision-Date: 2014-01-16 18:43+0000\n"
+"POT-Creation-Date: 2014-01-20 16:31-0600\n"
+"PO-Revision-Date: 2014-01-20 22:31+0000\n"
 "Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/openmediavault-aufs/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A aufs sambashare with the name '%s' already exists."
-msgstr ""
+msgstr "Un compartido aufs con el nombre '%s' , ya existe."
 
 msgid "A directory will be created and mounted in /media/ using Pool Name."
-msgstr ""
+msgstr "Una carpeta con el nombre del pool , será creada y montada en /media/"
 
 msgid "A pool with the name '%s' already exists."
-msgstr ""
+msgstr "Un pool con el nombre '%s' ya existe."
 
 msgid "AUFS"
-msgstr ""
+msgstr "AUFS"
 
 msgid "Add share"
-msgstr ""
+msgstr "Añadir compartido"
 
 msgid "Advanced Settings"
-msgstr ""
+msgstr "Configuración avanzada"
 
 msgid ""
 "Aufs sets either 'fsnotify' or 'inotify' to all the accessed directories on "
@@ -42,7 +43,7 @@ msgid ""
 " strict test level. When a user accesses the file which was notified UDBA "
 "before, the cached data about the file will be discarded and aufs will re-"
 "lookup it."
-msgstr ""
+msgstr "Aufs activa 'fsnotify' o 'inotify' en todos los directorios accedidos en sus ramas y recibe el evento acerca del directorio y sus descendientes. Consume recursos, CPU y Memoria. El rendimiento puede disminuir, pero es el nivel de Test más estricto. Cuando un usuario accede al archivo que ha sido notificado UDBA anteriormente, Los datos en caché del archivo son descartados y Aufs intenta recargarlos de nuevo."
 
 msgid ""
 "Aufs tests only the existence of the file which existed. If the existed file"
@@ -50,79 +51,94 @@ msgid ""
 "and re-lookup it. So the data will be updated. This test is at minimum level"
 " to keep the performance and ensure the existence of a file. This is default"
 " and aufs runs still fast."
-msgstr ""
+msgstr "Aufs solo comprueba la existencia del archivo si existe. Si el archivo a sido eliinado de la rama directamente, Aufs borra la cache del archivo e intenta recargar la información. Actualizando los datos. Esta comprobación es la mínima que permite mantener el rendimiento y asegurar la existencia de un archivo. Es la acción por defecto en Aufs."
 
 msgid "Bind Share"
-msgstr ""
+msgstr "Enlazar compartido"
 
 msgid "Branch #1"
-msgstr ""
+msgstr "Rama #1"
 
 msgid "Branch #10"
-msgstr ""
+msgstr "Rama #10"
 
 msgid "Branch #2"
-msgstr ""
+msgstr "Rama #2"
 
 msgid "Branch #3"
-msgstr ""
+msgstr "Rama #3"
 
 msgid "Branch #4"
-msgstr ""
+msgstr "Rama #4"
 
 msgid "Branch #5"
-msgstr ""
+msgstr "Rama #5"
 
 msgid "Branch #6"
-msgstr ""
+msgstr "Rama #6"
 
 msgid "Branch #7"
-msgstr ""
+msgstr "Rama #7"
 
 msgid "Branch #8"
-msgstr ""
+msgstr "Rama #8"
 
 msgid "Branch #9"
-msgstr ""
+msgstr "Rama #9"
 
 msgid "Branches"
+msgstr "Ramas"
+
+msgid "Create a shared folder for each drive - d1, d2, d3."
+msgstr ""
+
+msgid "Create a shared folder on any drive called poolshare."
 msgstr ""
 
 msgid "Edit share"
+msgstr "Editar compartido"
+
+msgid "Example setup - 3 drives"
 msgstr ""
 
 msgid ""
 "If unchecked, notify will be used.  If checked, reval will be used. See Info"
 " tab for explanation."
-msgstr ""
+msgstr "Si se desmarca, se usará notify (notificación). Si se marca, se usará reval (reevaluación). Vea la información de la pestaña para más información"
 
 msgid ""
 "If unchecked, pmfs will be used. If checked, mfs will be used. See Info tab "
 "for explanation."
-msgstr ""
+msgstr "Si se desmarca se usará pmfs, si se marca se usará mfs. Vea la pestaña para más información."
 
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 msgid "MFS"
-msgstr ""
+msgstr "MFS"
 
 msgid "Most-Free-Space (MFS)"
-msgstr ""
+msgstr "(MFS) Espacio menos usado"
 
 msgid "Pool Name"
-msgstr ""
+msgstr "Nombre del pool"
 
 msgid "Pool Settings"
-msgstr ""
+msgstr "Configuración del pool"
 
 msgid "Pool must contain at least two branches."
-msgstr ""
+msgstr "Un pool debe contener al menos 2 ramas"
 
 msgid "Pooling"
-msgstr ""
+msgstr "Pooling"
 
 msgid "Pools"
+msgstr "Pools"
+
+msgid "Set the bind share as pool share."
+msgstr ""
+
+msgid "Set three branches as d1, d2, d3."
 msgstr ""
 
 msgid "The pool will bind mounted to this share for use in other plugins."
@@ -132,7 +148,7 @@ msgid "The same shared folder is used by bind share and branch #%s."
 msgstr ""
 
 msgid "The same shared folder is used by branch #%s and #%s."
-msgstr ""
+msgstr "La misma carpeta compartida está en uso en la rama #%s y #%s."
 
 msgid "This bind share is already in use by branch in another pool."
 msgstr ""
@@ -143,7 +159,7 @@ msgid ""
 msgstr ""
 
 msgid "UDBA"
-msgstr ""
+msgstr "UDBA"
 
 msgid ""
 "UDBA means a modification to a branch filesystem manually or directly, e.g. "
@@ -157,8 +173,13 @@ msgid ""
 "happened or not."
 msgstr ""
 
-msgid "User's Direct Branch Access (UDBA)"
+msgid ""
+"Use the poolshare shared folder in other plugins. No need to use d1,d2,d3 in"
+" any plugin."
 msgstr ""
+
+msgid "User's Direct Branch Access (UDBA)"
+msgstr "(UDBA) Acceso directo a la rama de usuario"
 
 msgid ""
 "aufs pools directories, 'branches', into one directory.  Using default "
@@ -168,16 +189,16 @@ msgid ""
 msgstr ""
 
 msgid "create=mfs - Selects a writable branch which has most free space."
-msgstr ""
+msgstr "create=mfs - Selecciona una rama con permisos de escritura que tenga el mayor espacio libre."
 
 msgid ""
 "create=pmfs - Selects a writable branch where the parent directory exists. "
 "When the parent directory exists on multiple writable branches, aufs selects"
 " the one which has more free space."
-msgstr ""
+msgstr "create=pmfs - Selecciona una rama con permisos de escritura donde el directorio padre exista. Cuando el directorio padre exista en multiples ramas, Aufs seleccionará aquella que tenga mayor espacio libre."
 
 msgid "udba=notify"
-msgstr ""
+msgstr "udba=notify"
 
 msgid "udba=reval"
-msgstr ""
+msgstr "udba=reval"

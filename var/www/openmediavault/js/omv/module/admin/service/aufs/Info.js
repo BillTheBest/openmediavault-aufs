@@ -59,7 +59,25 @@ Ext.define("OMV.module.admin.service.aufs.Info", {
                     "<li>" +
                       _("create=pmfs - Selects a writable branch where the parent directory exists. When the parent directory exists on multiple writable branches, aufs selects the one which has more free space.") +
                     "</li>" +
-                  "</ul>";
+                  "</ul>" +
+                  "<b>" + _("Example setup - 3 drives") + "</b>" +
+                  "<ol>" +
+                    "<li>" +
+                      _("Create a shared folder for each drive - d1, d2, d3.") +
+                    "</li>" +
+                    "<li>" +
+                      _("Create a shared folder on any drive called poolshare.") +
+                    "</li>" +
+                    "<li>" +
+                      _("Set the bind share as pool share.") +
+                    "</li>" +
+                    "<li>" +
+                      _("Set three branches as d1, d2, d3.") +
+                    "</li>" +
+                    "<li>" +
+                      _("Use the poolshare shared folder in other plugins. No need to use d1,d2,d3 in any plugin.") +
+                    "</li>" +
+                  "</ol>";
         me.callParent(arguments);
     }
 });

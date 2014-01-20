@@ -257,7 +257,8 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
             $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $params[$sfRef]), $context);
             $sf .= ":".$sfPath."=rw";
         }
-        $object['fstab_line'] = "none /media/".$object['poolname']." aufs br".$sf.",sum,create=".$mfs.",udba=".$udba." 0 0";
+        $poolname = str_replace(" ", "\\040", $object['poolname']);
+        $object['fstab_line'] = "none /media/".$poolname." aufs br".$sf.",sum,create=".$mfs.",udba=".$udba." 0 0";
 
         // Make pooling directory
         if( ! file_exists("/media/".$object['poolname']) )
@@ -267,7 +268,7 @@ class OMVRpcServiceAufs extends OMVRpcServiceAbstract {
         // /media/poolname  /media/uuid/sharedfoldername  none  bind  0 0
         if(!empty($bindUuid)) {
             $sfPath = OMVRpc::exec("ShareMgmt", "getPath", array("uuid" => $bindUuid), $context);
-            $object['fstab_bind'] = "/media/".$object['poolname']."  ".$sfPath."  none  bind  0 0";
+            $object['fstab_bind'] = "/media/".$poolname."  ".$sfPath."  none  bind  0 0";
         }
 
         // Set the configuration object.

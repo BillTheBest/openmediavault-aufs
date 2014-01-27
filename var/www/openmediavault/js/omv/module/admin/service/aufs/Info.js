@@ -22,9 +22,9 @@
 Ext.define("OMV.module.admin.service.aufs.Info", {
     extend : "Ext.panel.Panel",
 
-    autoScroll: true,
+    autoScroll : true,
 
-    initComponent: function() {
+    initComponent : function() {
         var me = this;
 
         me.html = "<b>" + _("AUFS") + "</b>" +

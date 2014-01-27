@@ -22,6 +22,8 @@
 Ext.define("OMV.module.admin.service.aufs.Info", {
     extend : "Ext.panel.Panel",
 
+    autoScroll: true,
+
     initComponent: function() {
         var me = this;
 
